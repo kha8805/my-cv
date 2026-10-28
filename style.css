@@ -1,0 +1,460 @@
+/* =========================================================
+   RESET & BIẾN CƠ BẢN
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #2b5c8f;       /* Xanh dương chủ đạo */
+  --badge-bg: #556b82;            /* Màu nền xám xanh của các tiêu đề */
+  --badge-text: #ffffff;
+  --text-main: #2d3748;           /* Màu chữ chính */
+  --text-muted: #5a6a7e;          /* Màu chữ phụ / chú thích */
+  --left-bg: #ebf0f5;             /* Màu nền cột bên trái */
+  --right-bg: #ffffff;            /* Màu nền cột bên phải */
+  --border-color: #d1d9e0;
+  --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #dbe2e8;
+  color: var(--text-main);
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 30px 15px;
+}
+
+/* =========================================================
+   CONTAINER CHÍNH CỦA CV (Mô phỏng khổ giấy A4)
+   ========================================================= */
+.cv-container {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  display: flex;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* =========================================================
+   CỘT TRÁI (LEFT SIDEBAR)
+   ========================================================= */
+.cv-left {
+  width: 38%;
+  background-color: var(--left-bg);
+  padding: 35px 25px;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Khung ảnh đại diện tròn */
+.avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-circle {
+  width: 170px;
+  height: 170px;
+  background-color: #1f5fbf;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(31, 95, 191, 0.3);
+}
+
+.avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tên và chức danh */
+.profile-header {
+  text-align: left;
+}
+
+.candidate-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e3a5f;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  word-break: break-word;
+}
+
+.candidate-role {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Danh sách liên hệ */
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #334155;
+  gap: 12px;
+}
+
+.contact-list a {
+  color: #334155;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.icon-box {
+  width: 26px;
+  height: 26px;
+  background-color: #3b526d;
+  color: #ffffff;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Thanh phân cách tiêu đề có gạch 2 bên */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.section-divider .line {
+  flex: 1;
+  height: 1.5px;
+  background-color: #64748b;
+}
+
+.left-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  white-space: nowrap;
+}
+
+.about-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #475569;
+  text-align: justify;
+}
+
+/* Phần Kỹ năng */
+.skill-item {
+  margin-bottom: 14px;
+}
+
+.skill-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background-color: #cbd5e1;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #244b7a;
+  border-radius: 2px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* =========================================================
+   CỘT PHẢI (MAIN CONTENT)
+   ========================================================= */
+.cv-right {
+  width: 62%;
+  background-color: var(--right-bg);
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Badge bo tròn cho tiêu đề */
+.badge-title {
+  align-self: flex-start;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.section-desc {
+  font-size: 13.5px;
+  color: #334155;
+  font-weight: 500;
+}
+
+/* Học vấn (Education) */
+.timeline-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timeline-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 13px;
+}
+
+.time-col {
+  width: 95px;
+  font-weight: 700;
+  color: #1e293b;
+  flex-shrink: 0;
+}
+
+.info-col {
+  flex: 1;
+  padding-right: 15px;
+}
+
+.degree {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.institution {
+  font-style: italic;
+  color: #475569;
+}
+
+.location-col {
+  width: 90px;
+  text-align: right;
+  font-weight: 500;
+  color: #334155;
+  flex-shrink: 0;
+}
+
+/* Thông tin cá nhân (Personal Information) */
+.personal-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-row {
+  display: flex;
+  font-size: 13px;
+}
+
+.info-key {
+  width: 130px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.info-val {
+  color: #334155;
+}
+
+/* Đào tạo chuyên môn (Professional Training) */
+.training-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.training-row {
+  display: flex;
+  font-size: 13px;
+}
+
+.training-year {
+  width: 95px;
+  font-weight: 700;
+  color: #1e293b;
+  flex-shrink: 0;
+}
+
+.training-name {
+  color: #334155;
+}
+
+/* Kinh nghiệm (Experience) */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.exp-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.exp-header {
+  display: flex;
+  font-size: 13px;
+}
+
+.exp-year {
+  width: 95px;
+  font-weight: 700;
+  color: #1e293b;
+  flex-shrink: 0;
+}
+
+.exp-company {
+  flex: 1;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.exp-location {
+  width: 90px;
+  text-align: right;
+  color: #475569;
+}
+
+.exp-desc {
+  font-size: 12.5px;
+  color: #475569;
+  padding-left: 95px;
+  line-height: 1.45;
+}
+
+/* Người tham chiếu (References) */
+.reference-box {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.ref-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.ref-title {
+  font-weight: 600;
+  color: #334155;
+}
+
+.ref-dept, .ref-univ {
+  color: #475569;
+}
+
+/* =========================================================
+   RESPONSIVE (Xem trên điện thoại, máy tính bảng)
+   ========================================================= */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .cv-container {
+    flex-direction: column;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .cv-left, .cv-right {
+    width: 100%;
+    padding: 25px 20px;
+  }
+
+  .cv-left {
+    border-right: none;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  .timeline-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .time-col, .location-col {
+    width: auto;
+    text-align: left;
+  }
+
+  .exp-header {
+    flex-direction: column;
+  }
+
+  .exp-year, .exp-location {
+    width: auto;
+    text-align: left;
+  }
+
+  .exp-desc {
+    padding-left: 0;
+    margin-top: 4px;
+  }
+}
+
+/* =========================================================
+   IN ẤN / XUẤT FILE PDF (Ctrl + P)
+   ========================================================= */
+@media print {
+  body {
+    background: none;
+    padding: 0;
+  }
+
+  .cv-container {
+    box-shadow: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
